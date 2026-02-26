@@ -8,6 +8,7 @@ export type PanelConfig = {
   sortBy: string;
   createFields: FieldConfig[];
   filters?: FilterConfig[];
+  rowFieldMap?: Record<string, string>;
 };
 
 export const masterPanels: PanelConfig[] = [
@@ -37,7 +38,8 @@ export const masterPanels: PanelConfig[] = [
     filters: [
       { name: "type", label: "Supplier type" },
       { name: "country", label: "Filter country" }
-    ]
+    ],
+    rowFieldMap: { type: "supplier_type" }
   },
   {
     title: "Buyers",

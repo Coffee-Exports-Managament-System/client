@@ -5,7 +5,9 @@
 
 ## Files
 - `config.ts`: reusable panel configuration (fields, endpoints, default sort/filter behavior).
+- `MasterRowActions.tsx`: admin-only edit/delete row actions for master records.
 
 ## Notes
 - Uses standardized list query contract:
   - `page`, `page_size`, `sort_by`, `sort_order`, `search`, `filter_*`.
+- Edit and delete actions are shown only to admin users.

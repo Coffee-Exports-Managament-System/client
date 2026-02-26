@@ -462,6 +462,32 @@ tbody tr:nth-child(even) {
   @apply min-w-[260px] max-w-[360px] rounded-lg border border-[#ccbca1] bg-[#fffdf9] px-3 py-2 shadow-md;
 }
 
+.confirm-modal-backdrop {
+  background: rgba(46, 46, 46, 0.48);
+  @apply fixed inset-0 z-50 flex items-center justify-center p-4;
+}
+
+.confirm-modal {
+  @apply w-full max-w-md rounded-xl border border-[#d7cab0] bg-[#fffaf1] p-4 shadow-xl;
+}
+
+.confirm-modal h3 {
+  color: var(--coffee-brown);
+  @apply m-0 text-lg font-semibold;
+}
+
+.confirm-modal p {
+  @apply mb-0 mt-2 text-sm text-[#5f4e38];
+}
+
+.confirm-modal-actions {
+  @apply mt-4 flex justify-end gap-2;
+}
+
+.form-modal {
+  @apply max-h-[88vh] max-w-2xl overflow-auto;
+}
+
 @media (max-width: 1024px) {
   .sidebar {
     @apply h-auto border-b border-r-0;
