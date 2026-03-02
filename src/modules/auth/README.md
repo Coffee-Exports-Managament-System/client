@@ -7,7 +7,8 @@
 - `api.ts`: browser-side auth API functions against Next route handlers (`/api/auth/*`).
 - `useSessionQuery.ts`: React Query hook for authenticated session state.
 - `LoginForm.tsx`: sign-in UI.
-- `RegisterForm.tsx`: account creation UI.
+- `AdminCreateUserForm.tsx`: admin-only user creation UI.
+- `UserStatusRowActions.tsx`: admin-only activate/disable actions with confirmation modal.
 
 ## Notes
 - Tokens are not stored in local storage.

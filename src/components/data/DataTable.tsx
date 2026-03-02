@@ -19,6 +19,9 @@ function toTitleCase(value: string): string {
 }
 
 function displayColumnName(column: string): string {
+  if (column === "is_active") {
+    return "Status";
+  }
   if (column.endsWith("_name")) {
     return toTitleCase(column.slice(0, -5));
   }
@@ -96,9 +99,15 @@ function renderTag(column: string, value: string): React.JSX.Element | null {
   }
 
   if (column === "status") {
-    const riskStatuses = new Set(["closed", "cancelled", "overdue"]);
+    const riskStatuses = new Set(["closed", "cancelled", "overdue", "disabled", "inactive"]);
     const tone = riskStatuses.has(value) ? "tag-status-risk" : "tag-status-good";
     return <span className={`tag ${tone}`}>{value}</span>;
+  }
+
+  if (column === "is_active") {
+    const normalized = value === "true" ? "active" : value === "false" ? "disabled" : value;
+    const tone = normalized === "active" ? "tag-status-good" : "tag-status-risk";
+    return <span className={`tag ${tone}`}>{normalized}</span>;
   }
 
   return null;
@@ -167,6 +176,9 @@ function stringifyPrimitive(column: string, value: unknown): string {
   }
 
   if (typeof value === "boolean") {
+    if (column === "is_active") {
+      return value ? "active" : "disabled";
+    }
     return value ? "true" : "false";
   }
   return String(value);
